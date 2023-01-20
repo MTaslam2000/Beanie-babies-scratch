@@ -24,4 +24,19 @@ Additional considerations:
     -   What arrays might you need?
     -   What needs to live in a persistence layer?
 -   Is there some state we need to initialize?
--   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?)
+-   Ask: should any of this work be abstracted into functions? (i.e., is the work complicated? can it be reused?
+
+##HTML
+
+-   html dropdown with no option(inject them later)
+-   some div to append beanie babies to later
+
+##State
+
+-   array of astrological signs we are gonna fetch from SQL/API
+-   array of beanie babies we are gonna fetch from SQL/API
+
+##Events
+
+-   on the page load - request astrology sign - append astrology options to dropdown (using fetch data) - request beanie babies list - append beanie babies els to section (using fetch data)
+-   on clicking submit on dropdown items - request new list of filtered beanie babies from supabase
