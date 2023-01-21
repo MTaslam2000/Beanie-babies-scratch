@@ -40,3 +40,5 @@ Additional considerations:
 
 -   on the page load - request astrology sign - append astrology options to dropdown (using fetch data) - request beanie babies list - append beanie babies els to section (using fetch data)
 -   on clicking submit on dropdown items - request new list of filtered beanie babies from supabase
+
+##Slices

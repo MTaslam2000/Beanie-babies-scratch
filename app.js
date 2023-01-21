@@ -1,7 +1,9 @@
 /* Imports */
+import { getBeanieBabies, getAstrology } from './fetch-utils.js';
 
 /* Get DOM Elements */
 const beanieBabiesEl = document.querySelector('.beanie-babies');
+const optionsEl = document.querySelector('.options')
 
 
 /* State */
@@ -15,10 +17,10 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 /* Events */
 window.addEventListener('load', async () => {
-    let { data, error } = await client
-        .from('beanie_babies').select('*').limit(100);
+    const beanies = await getBeanieBabies();
 
-    for (let beanieBaby of data) {
+
+    for (let beanieBaby of beanies) {
         const beanieBabyEl = document.createElement('div');
         
 
@@ -26,6 +28,15 @@ window.addEventListener('load', async () => {
         beanieBabiesEl.append(beanieBabyEl);
     }
 });
+
+const zodiacs = await getAstrology();
+
+for (let zodiac of zodiacs) {
+    const optionsEl = document.createElement('option');
+    console.log(optionsEl);
+}
+
 /* Display Functions */
+
 
 // (don't forget to call any display functions you want to run on page load!)
