@@ -24,7 +24,21 @@ window.addEventListener('load', async () => {
     
     beanieBabiesData = beanies;
 
+    
     const zodiacs = await getAstrology();
+
+
+    for (let zodiac of zodiacs) {
+        const optionsEl = document.createElement('option');
+    
+
+        optionsEl.value = zodiac.name;
+        optionsEl.textContent = zodiac.name;
+
+        selectEl.append(optionsEl);
+
+    }
+
 
     displayBeanieBabies();
 
@@ -39,20 +53,6 @@ formEl.addEventListener('submit', async (e) => {
 
     displayBeanieBabies();
 });
-
-const zodiacs = await getAstrology();
-
-
-for (let zodiac of zodiacs) {
-    const optionsEl = document.createElement('option');
-    
-
-    optionsEl.value = zodiac.name;
-    optionsEl.textContent = zodiac.name
-
-    selectEl.append(optionsEl);
-
-}
 
 
 /* Display Functions */
