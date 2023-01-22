@@ -7,7 +7,7 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export async function getBeanieBabies() {
     let { data, error } = await client
-        .from('beanie_babies').select('*').limit(100);
+        .from('beanie_babies').select('*').limit(100).eq('astroSign', 'Leo');
 
     return data;
 }
@@ -15,6 +15,6 @@ export async function getBeanieBabies() {
 export async function getAstrology() {
     let { data, error } = await client
         .from('beanie_baby_astro_signs').select('*');
-
+    
     return data;
 }
