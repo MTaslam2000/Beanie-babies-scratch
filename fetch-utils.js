@@ -5,9 +5,17 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsI
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 
-export async function getBeanieBabies() {
+export async function getBeanieBabies(zodiacTheUserSelected) {
+    if (zodiacTheUserSelected) {
+        let { data, error } = await client
+            .from('beanie_babies').select('*').limit(100).eq('astroSign', zodiacTheUserSelected);
+
+        return data;
+    }
+
+
     let { data, error } = await client
-        .from('beanie_babies').select('*').limit(100).eq('astroSign', 'Leo');
+        .from('beanie_babies').select('*').limit(100);
 
     return data;
 }

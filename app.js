@@ -6,6 +6,7 @@ const beanieBabiesEl = document.querySelector('.beanie-babies');
 const optionsEl = document.querySelector('.options');
 const selectEl = document.querySelector('select');
 const buttonEl = document.querySelector('button');
+const formEl = document.querySelector('form');
 
 
 /* State */
@@ -29,7 +30,8 @@ window.addEventListener('load', async () => {
 
 });
 
-buttonEl.addEventListener('click', async () => {
+formEl.addEventListener('submit', async (e) => {
+    e.preventDefault();
     const clickedBeanies = await getBeanieBabies(selectEl.value);
     
     beanieBabiesData = clickedBeanies;
@@ -68,3 +70,4 @@ function displayBeanieBabies() {
 
 
 // (don't forget to call any display functions you want to run on page load!)
+displayBeanieBabies();
